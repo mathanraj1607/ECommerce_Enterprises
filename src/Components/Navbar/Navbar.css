@@ -1,0 +1,7 @@
+.hr-line{
+    border: none;
+    width: 45px;
+    height: 4px;
+    background-color: red;
+    margin-top: 9px;
+}
