@@ -4,6 +4,11 @@ import { ShopContext } from '../../Context/ShopContext'
 export const Item = (props) => {
   const { addToCart } = useContext(ShopContext)
 
+  // Support both backend field names (url/price/actualPrice) and seeded frontend names (image/new_price/old_price)
+  const imgSrc = props.url ?? props.image
+  const newPrice = props.price ?? props.new_price
+  const oldPrice = props.actualPrice ?? props.old_price
+
   const handleAddToCart = () => {
     // Ensure we always pass a defined ID
     if (props.id !== undefined) {
@@ -13,14 +18,14 @@ export const Item = (props) => {
 
   return (
     <div className='items flex flex-col items-center'>
-      <img src={props.image} alt='' className='w-full' />
+      <img src={imgSrc} alt='' className='w-full' />
       <p className='w-full text-center'>{props.name}</p>
       <div className='item-price flex flex-row gap-8'>
         <div className='item-price-new  text-gray-500 text-2xl font-medium'>
-          ${props.new_price}
+          ${newPrice}
         </div>
         <div className='item-price-old line-through text-gray-200 text-1xl font-light flex justify-center items-center'>
-          ${props.old_price}
+          ${oldPrice}
         </div>
       </div>
       <button

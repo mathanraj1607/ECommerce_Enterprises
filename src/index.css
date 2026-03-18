@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* Prevent layout shift when navigating between pages with/without vertical scrollbar */
+html{
+    overflow-y: scroll;            /* fallback */
+    scrollbar-gutter: stable;      /* modern browsers */
+}
+
 *{
     margin: 0;
 }

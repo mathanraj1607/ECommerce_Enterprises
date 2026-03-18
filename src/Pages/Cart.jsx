@@ -17,7 +17,8 @@ export const Cart = () => {
         <div className='space-y-4'>
           {cartProducts.map((product) => {
             const qty = cartItems[product.id]
-            const lineTotal = product.new_price * qty
+            const unitPrice = product?.price ?? product?.new_price ?? 0
+            const lineTotal = unitPrice * qty
 
             return (
               <div
@@ -27,7 +28,7 @@ export const Cart = () => {
                 <div>
                   <p className='font-medium'>Product: {product.name}</p>
                   <p className='text-sm text-gray-500'>Product ID: {product.id}</p>
-                  <p className='text-sm text-gray-700'>Unit Price: ${product.new_price.toFixed(2)}</p>
+                  <p className='text-sm text-gray-700'>Unit Price: ${unitPrice.toFixed(2)}</p>
                 </div>
                 <div className='text-right'>
                   <p>Quantity: {qty}</p>
