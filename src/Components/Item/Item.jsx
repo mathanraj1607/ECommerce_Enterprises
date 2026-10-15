@@ -17,19 +17,19 @@ export const Item = (props) => {
   }
 
   return (
-    <div className='items flex flex-col items-center'>
+    <div className='items flex flex-col items-center transition-transform duration-300 hover:scale-105'>
       <img src={imgSrc} alt='' className='w-full' />
       <p className='w-full text-center'>{props.name}</p>
       <div className='item-price flex flex-row gap-8'>
         <div className='item-price-new  text-gray-500 text-2xl font-medium'>
           ${newPrice}
         </div>
-        <div className='item-price-old line-through text-gray-200 text-1xl font-light flex justify-center items-center'>
+        <div className='item-price-old line-through text-gray-400 text-1xl font-light flex justify-center items-center'>
           ${oldPrice}
         </div>
       </div>
       <button
-        className='text-2xl text-white font-medium bg-red-500 p-3 border border-none rounded-4xl cursor-pointer'
+        className='text-2xl text-white font-medium bg-red-500 p-3 border border-none rounded-4xl cursor-pointer transition-colors duration-200 hover:bg-red-600 active:bg-red-300'
         onClick={handleAddToCart}
       >
         Add to Cart
